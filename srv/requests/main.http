@@ -1,0 +1,31 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+### Main.Wallets
+GET {{server}}/main/Wallets
+Content-Type: application/json
+{{auth}}
+
+### Main.Customer
+GET {{server}}/main/Customers
+Content-Type: application/json
+{{auth}}
+
+### Main.getParameters
+GET {{server}}/main/getParameters()
+Content-Type: application/json
+{{auth}}
+
+### Main.updateParameters
+POST {{server}}/main/updateParameters
+Content-Type: application/json
+{{auth}}
+
+{
+    "parameters": {
+        "is_cashback_active": true,
+        "cashback_return": 60.00,
+        "cashback_redemption_limit": 60.34
+    }
+  
+}

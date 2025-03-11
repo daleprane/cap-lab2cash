@@ -1,0 +1,3 @@
+destinations='[{"name":"LAB2CASH_PROXY","url":"https://LAB2CASH_PROXY.dest","proxyHost":"http://127.0.0.1","proxyPort":"8887"}]'
+cds_requires='{"LAB2CASH_PROXY":{"impl":"@sap/cds/libx/_runtime/remote/Service.js","external":true,"kind":"odata","model":"srv/external/LAB2CASH_PROXY","credentials":{"destination":"LAB2CASH_PROXY","path":"/proxy"}},"auth":{"strategy":"dummy","kind":"dummy"},"messaging":{"kind":"local-messaging"}}'
+VCAP_SERVICES='{}'

@@ -1,0 +1,30 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+### Main.Sales Order
+POST {{server}}/main/A_SalesOrder
+Content-Type: application/json
+{{auth}}
+
+{
+    "SalesOrderType": "ORB",
+    "PurchaseOrderByCustomer": "1234567891",
+    "SoldToParty": "14100001",
+    "TotalNetAmount": "1000",
+    "to_Item": [
+        {
+            "SalesOrderItem": "1",
+            "Material": "MGS-1000",
+            "RequestedQuantity": "1",
+            "RequestedQuantityUnit": "KG"
+        }
+    ],
+    "Order": {
+        "applied_cashback": 80000
+    }
+}
+
+### Main.BusinessPartner
+GET {{server}}/main/A_BusinessPartner
+Content-Type: application/json
+{{auth}}

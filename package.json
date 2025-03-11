@@ -1,0 +1,46 @@
+{
+  "name": "lab2cash",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap-cloud-sdk/http-client": "^4.0.1",
+    "@sap-cloud-sdk/resilience": "^4.0.1",
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.9.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "@sap/dev-cap-tools": "^1.31.0"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa",
+        "db": "hana"
+      },
+      "LAB2CASH_PROXY": {
+        "kind": "odata",
+        "model": "srv/external/LAB2CASH_PROXY",
+        "credentials": {
+          "destination": "LAB2CASH_PROXY",
+          "path": "/proxy"
+        },
+        "csrf": true,
+        "csrfInBatch": true
+      }
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  }
+}
